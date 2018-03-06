@@ -74,6 +74,7 @@ $(document).on("click", ".topicButton", function(response) {
 		gifImage.attr("data-animate", movingURL);
 		gifImage.attr("data-state", "still");
 		gifImage.attr("alt", "gif image");
+		gifImage.addClass("gifClick");
 		// gifImage.text("Rating :"+response.data[i].rating);
 		// gifImage.append(caption);
 	
