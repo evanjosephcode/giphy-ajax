@@ -17,3 +17,11 @@ label {
 .lead {
 	color: blue;
 }
+
+button {
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: purple;
+	color: white;
+	margin-bottom: 10px;
+}

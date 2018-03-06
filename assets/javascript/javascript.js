@@ -19,8 +19,6 @@ function createButtons() {
 
 		var make = $("<button>");
 		make.addClass("topicButton").attr("data-name", topics[i]).text(topics[i]);
-		make.css("margin-left", "5px").css("margin-right", "5px").css("background-color", "purple").css("color", "white").css("margin-bottom", "10px");
-
 		$("#searchButtons").append(make);
 	}
 }
@@ -75,6 +73,7 @@ $(document).on("click", ".topicButton", function(response) {
 		gifImage.attr("data-state", "still");
 		gifImage.attr("alt", "gif image");
 		gifImage.addClass("gifClick");
+		// gifImage.append("<caption>Rating :"+response.data[i].rating+"<caption>");
 		// gifImage.text("Rating :"+response.data[i].rating);
 		// gifImage.append(caption);
 	
