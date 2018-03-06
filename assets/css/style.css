@@ -1,0 +1,15 @@
+body {
+	background-color: black;
+}
+
+form {
+	margin-bottom: 20px;
+}
+
+.jumbotron {
+	background-color: #FFD700;
+}
+
+label {
+	color: white;
+}

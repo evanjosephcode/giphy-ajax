@@ -19,6 +19,8 @@ function createButtons() {
 
 		var make = $("<button>");
 		make.addClass("topicButton").attr("data-name", topics[i]).text(topics[i]);
+		make.css("margin-left", "5px").css("margin-right", "5px").css("background-color", "purple").css("color", "white").css("margin-bottom", "10px");
+
 		$("#searchButtons").append(make);
 	}
 }
@@ -33,6 +35,10 @@ $("#addSearch").on("click", function () {
 
 	if (topics.indexOf(userInput) !== -1) {
 		alert("that's already a button, fool");
+	}
+
+	else if (userInput === "") {
+		alert("you have to input something!");
 	}
 
 	else {
@@ -54,10 +60,13 @@ $(document).on("click", ".topicButton", function(response) {
 	for (var i = 0; i < response.data.length; i++) {
 
 		var imageURL = response.data[i].images.fixed_height_still.url;
-		var movingURL = response.data[i].images.fixed_width.url;
+		var movingURL = response.data[i].images.fixed_height.url;
 
 		//creating and storing image tag
 		var gifImage = $("<img>");
+		// var caption = $("<p>").text("Rating :"+response.data[i].rating)
+		console.log(queryURLBase);
+
 
 		// setting src to imageURL 
 		gifImage.attr("src", imageURL);
@@ -65,7 +74,8 @@ $(document).on("click", ".topicButton", function(response) {
 		gifImage.attr("data-animate", movingURL);
 		gifImage.attr("data-state", "still");
 		gifImage.attr("alt", "gif image");
-		gifImage.addClass("gifClick");
+		// gifImage.text("Rating :"+response.data[i].rating);
+		// gifImage.append(caption);
 	
 		//prepending gif image to image div
 		$("#searchPopulated").prepend(gifImage);
