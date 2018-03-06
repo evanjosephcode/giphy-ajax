@@ -4,12 +4,11 @@ $(document).ready(function () {
 var authKey = "XHQCUcBJCNhE5UjPiKXt5rpOZpSjIDhM";
 
 //hold results from user input
-var searchTerms = "oprah";
-var rating = "pg"; 
-
+var searchTerms;
+var rating = "pg13"; 
+var limit = 200;
 var topics = ["Jack Nicholson", "Jeff Daniels", "Will Ferrell", "Samuel L Jackson", "Mike Myers", "Mark Wahlberg", "Billy Bob Thornton"]
 
-var queryURLBase = "https://api.giphy.com/v1/gifs/search?q="+searchTerms+"&api_key="+authKey+"&limit=10&rating="+rating
 
 
 function createButtons() {
@@ -49,16 +48,23 @@ $("#addSearch").on("click", function () {
 
 $(document).on("click", ".topicButton", function(response) {
 	var dataNames = $(this).attr("data-name");
-	var queryURLBase = "https://api.giphy.com/v1/gifs/search?q="+dataNames+"&api_key="+authKey+"&limit=10&rating="+rating;
+	var queryURLBase = "https://api.giphy.com/v1/gifs/search?q="+dataNames+"&api_key="+authKey+"&limit="+limit+"&rating="+rating;
+
 
 	$.get(queryURLBase).then(function(response) {
 
 	$("#searchPopulated").empty();
-	
-	for (var i = 0; i < response.data.length; i++) {
 
-		var imageURL = response.data[i].images.fixed_height_still.url;
-		var movingURL = response.data[i].images.fixed_height.url;
+	
+	for (var i = 0; i < 10; i++) {
+
+		var random = Math.floor(Math.random() * response.data.length);
+		console.log(random);
+
+		var imageURL = response.data[random].images.fixed_height_still.url;
+		var movingURL = response.data[random].images.fixed_height.url;
+
+		console.log(response.data[random].rating);
 
 		//creating and storing image tag
 		var gifImage = $("<img>");
@@ -72,7 +78,7 @@ $(document).on("click", ".topicButton", function(response) {
 		gifImage.attr("data-animate", movingURL);
 		gifImage.attr("data-state", "still");
 		gifImage.attr("alt", "gif image");
-		gifImage.addClass("gifClick");
+		gifImage.addClass("gifClick")
 		// gifImage.append("<caption>Rating :"+response.data[i].rating+"<caption>");
 		// gifImage.text("Rating :"+response.data[i].rating);
 		// gifImage.append(caption);
