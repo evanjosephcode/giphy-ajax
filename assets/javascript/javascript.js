@@ -7,7 +7,7 @@ var authKey = "XHQCUcBJCNhE5UjPiKXt5rpOZpSjIDhM";
 var searchTerms = "oprah";
 var rating = "pg"; 
 
-var topics = ["Jack Nicholson", "Jeff Daniels", "Will Ferrell", "Mike Myers", "Mark Wahlberg", "Billy Bob Thornton"]
+var topics = ["Jack Nicholson", "Jeff Daniels", "Will Ferrell", "Samuel L Jackson", "Mike Myers", "Mark Wahlberg", "Billy Bob Thornton"]
 
 var queryURLBase = "https://api.giphy.com/v1/gifs/search?q="+searchTerms+"&api_key="+authKey+"&limit=10&rating="+rating
 
