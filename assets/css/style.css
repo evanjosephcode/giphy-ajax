@@ -16,14 +16,16 @@ label {
 
 .lead {
 	color: blue;
+	font-style: italic;
 }
 
 button {
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left: 8px;
+	margin-right: 8px;
 	background-color: purple;
 	color: white;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
+	padding: 20px 20px 20px 20px;
 
 }
 
@@ -35,6 +37,39 @@ h1 {
 	font-family: 'Gloria Hallelujah', cursive;
 }
 
-p.dashed {
-	border-style: dashed;
+
+.topicButton:hover {
+	background-color: red;
 }
+
+p {
+	color: white;
+}
+
+#addSearch:hover {
+	background-color: red;
+}
+
+#addSearch {
+	background-color: purple;
+	color: white;
+	padding: 3px 8px 3px 8px;
+}
+
+#searchInput {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+	img {
+		width: 100%;
+	}
+
+	#searchButtons {
+		width: 100%;
+	}
+}
+

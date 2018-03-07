@@ -7,7 +7,7 @@ var authKey = "XHQCUcBJCNhE5UjPiKXt5rpOZpSjIDhM";
 var searchTerms;
 var rating = "pg13"; 
 var limit = 200;
-var topics = ["Jack Nicholson", "Jeff Daniels", "Will Ferrell", "Samuel L Jackson", "Mike Myers", "Mark Wahlberg", "Billy Bob Thornton"]
+var topics = ["Jack Nicholson", "Jeff Daniels", "Will Ferrell", "Samuel L Jackson", "Mike Myers", "Mark Wahlberg"];
 
 
 
@@ -68,7 +68,8 @@ $(document).on("click", ".topicButton", function(response) {
 
 		//creating and storing image tag
 		var gifImage = $("<img>");
-		// var caption = $("<p>").text("Rating :"+response.data[i].rating)
+		var gifDiv = $("<div class='imgWrap'>");
+		var caption = $("<p>").text("Rating: "+(response.data[random].rating).toUpperCase());
 		console.log(queryURLBase);
 
 
@@ -78,13 +79,12 @@ $(document).on("click", ".topicButton", function(response) {
 		gifImage.attr("data-animate", movingURL);
 		gifImage.attr("data-state", "still");
 		gifImage.attr("alt", "gif image");
-		gifImage.addClass("gifClick")
-		// gifImage.append("<caption>Rating :"+response.data[i].rating+"<caption>");
-		// gifImage.text("Rating :"+response.data[i].rating);
-		// gifImage.append(caption);
+		gifImage.addClass("gifClick");
+		gifDiv.append(gifImage);
+		gifDiv.append(caption);
 	
 		//prepending gif image to image div
-		$("#searchPopulated").prepend(gifImage);
+		$("#searchPopulated").prepend(gifDiv);
 	}
 	});
 });
