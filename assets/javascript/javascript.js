@@ -96,10 +96,13 @@ $(document).on("click", ".gifClick", function(response) {
 	if (state === "still") {
 		$(this).attr("src", $(this).attr("data-animate"));
 		$(this).attr("data-state", "animate");
+		$("body").css("background-color", "blue");
 	}
 	else {
 		$(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
+	    $("body").css("background-color", "black");
+
 	}
 });
 
