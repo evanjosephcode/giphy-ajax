@@ -54,24 +54,17 @@ $(document).on("click", ".topicButton", function(response) {
 	$.get(queryURLBase).then(function(response) {
 
 	$("#searchPopulated").empty();
-
 	
 	for (var i = 0; i < 10; i++) {
 
 		var random = Math.floor(Math.random() * response.data.length);
-		console.log(random);
-
 		var imageURL = response.data[random].images.fixed_height_still.url;
 		var movingURL = response.data[random].images.fixed_height.url;
-
-		console.log(response.data[random].rating);
 
 		//creating and storing image tag
 		var gifImage = $("<img>");
 		var gifDiv = $("<div class='imgWrap'>");
 		var caption = $("<p>").text("Rating: "+(response.data[random].rating).toUpperCase());
-		console.log(queryURLBase);
-
 
 		// setting src to imageURL 
 		gifImage.attr("src", imageURL);
@@ -96,13 +89,10 @@ $(document).on("click", ".gifClick", function(response) {
 	if (state === "still") {
 		$(this).attr("src", $(this).attr("data-animate"));
 		$(this).attr("data-state", "animate");
-		$("body").css("background-color", "blue");
 	}
 	else {
 		$(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
-	    $("body").css("background-color", "black");
-
 	}
 });
 
