@@ -9,8 +9,6 @@ var rating = "pg13";
 var limit = 200;
 var topics = ["Jack Nicholson", "Jeff Daniels", "Will Ferrell", "Samuel L Jackson", "Mike Myers", "Mark Wahlberg"];
 
-
-
 function createButtons() {
 	$("#searchButtons").empty();
 
@@ -29,13 +27,17 @@ createButtons();
 $("#addSearch").on("click", function () {
 	event.preventDefault();
 	var userInput = $("#searchInput").val().trim();
+	$(".prompt").empty();
+
+
 
 	if (topics.indexOf(userInput) !== -1) {
-		alert("that's already a button, fool");
+		$(".prompt").text("that's already a button, fool");
 	}
 
 	else if (userInput === "") {
-		alert("you have to input something!");
+		// alert("you have to input something!");
+		$(".prompt").text("you have to input something!");
 	}
 
 	else {
@@ -54,6 +56,8 @@ $(document).on("click", ".topicButton", function(response) {
 	$.get(queryURLBase).then(function(response) {
 
 	$("#searchPopulated").empty();
+	$("body").css("background-color", "black");
+	$(".prompt").empty();
 	
 	for (var i = 0; i < 10; i++) {
 
@@ -89,15 +93,14 @@ $(document).on("click", ".gifClick", function(response) {
 	if (state === "still") {
 		$(this).attr("src", $(this).attr("data-animate"));
 		$(this).attr("data-state", "animate");
+		$("body").css("background-color", "blue");
 	}
 	else {
 		$(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
+        $("body").css("background-color", "black");
 	}
 });
-
-
-
 
 
 // to end the document ready

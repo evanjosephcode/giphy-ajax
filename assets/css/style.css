@@ -38,6 +38,11 @@ h1 {
 	margin-bottom: 15px;
 }
 
+.upstaged {
+	font-size: 60px;
+	color: red;
+}
+
 
 .topicButton:hover {
 	background-color: red;
@@ -62,6 +67,12 @@ p {
 	margin-right: 5px;
 }
 
+.prompt {
+	color: red;
+	font-size: 36px;
+	font-family: 'Abel', sans-serif;
+	height: 51px;
+}
 
 
 @media screen and (max-width: 768px) {
