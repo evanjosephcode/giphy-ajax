@@ -28,11 +28,12 @@ $("#addSearch").on("click", function () {
 	event.preventDefault();
 	var userInput = $("#searchInput").val().trim();
 	$(".prompt").empty();
-
+	$("#searchInput").val('');
 
 
 	if (topics.indexOf(userInput) !== -1) {
 		$(".prompt").text("that's already a button, fool");
+
 	}
 
 	else if (userInput === "") {
