@@ -57,7 +57,6 @@ $(document).on("click", ".topicButton", function(response) {
 	$.get(queryURLBase).then(function(response) {
 
 	$("#searchPopulated").empty();
-	$("body").css("background-color", "black");
 	$(".prompt").empty();
 	
 	for (var i = 0; i < 10; i++) {
@@ -94,12 +93,10 @@ $(document).on("click", ".gifClick", function(response) {
 	if (state === "still") {
 		$(this).attr("src", $(this).attr("data-animate"));
 		$(this).attr("data-state", "animate");
-		$("body").css("background-color", "blue");
 	}
 	else {
 		$(this).attr("src", $(this).attr("data-still"));
         $(this).attr("data-state", "still");
-        $("body").css("background-color", "black");
 	}
 });
 
