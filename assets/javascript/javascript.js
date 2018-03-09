@@ -58,17 +58,26 @@ $(document).on("click", ".topicButton", function(response) {
 
 	$("#searchPopulated").empty();
 	$(".prompt").empty();
-	
-	for (var i = 0; i < 10; i++) {
+	var randomResults = [];
 
-		var random = Math.floor(Math.random() * response.data.length);
-		var imageURL = response.data[random].images.fixed_height_still.url;
-		var movingURL = response.data[random].images.fixed_height.url;
+    while (randomResults.length < 10) {
+	var random = Math.floor(Math.random() * response.data.length);
+    if (randomResults.indexOf(random) === -1) {
+        randomResults.push(random);
+    	}}
+
+	
+	for (var i = 0; i < randomResults.length; i++) {
+
+		// var random = Math.floor(Math.random() * response.data.length);
+		var imageURL = response.data[i].images.fixed_height_still.url;
+		var movingURL = response.data[i].images.fixed_height.url;
+
 
 		//creating and storing image tag
 		var gifImage = $("<img>");
 		var gifDiv = $("<div class='imgWrap'>");
-		var caption = $("<p>").text("Rating: "+(response.data[random].rating).toUpperCase());
+		var caption = $("<p>").text("Rating: "+(response.data[i].rating).toUpperCase());
 
 		// setting src to imageURL 
 		gifImage.attr("src", imageURL);
