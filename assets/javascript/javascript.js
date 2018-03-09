@@ -6,7 +6,7 @@ var authKey = "XHQCUcBJCNhE5UjPiKXt5rpOZpSjIDhM";
 //hold results from user input
 var searchTerms;
 var rating = "pg13"; 
-var limit = 200;
+var limit = 100;
 var topics = ["Jack Nicholson", "Jeff Daniels", "Will Ferrell", "Samuel L Jackson", "Mike Myers", "Mark Wahlberg"];
 
 function createButtons() {
